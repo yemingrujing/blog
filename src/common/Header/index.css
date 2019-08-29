@@ -1,0 +1,41 @@
+#Header {
+  height: 50px;
+  background: #444;
+  color: #fff;
+}
+#Header .nav-wrap {
+  width: 1200px;
+  margin: 0 auto;
+  height: 50px;
+  box-sizing: border-box;
+}
+#Header .nav-wrap .nav-logo-wrap {
+  display: inline-block;
+  font-size: 26px;
+  width: 26px;
+  vertical-align: top;
+  margin-left: 12px;
+  margin-top: 4px;
+}
+#Header .nav-wrap .nav-list-wrap {
+  width: 1160px;
+  display: inline-block;
+  height: 50px;
+  text-align: right;
+}
+#Header .nav-wrap .nav-list-wrap .ant-menu {
+  color: #fff;
+  background: transparent;
+  display: inline-block;
+  height: 50px;
+}
+#Header .nav-wrap .nav-list-wrap .ant-menu-horizontal {
+  border-color: transparent;
+}
+#Header .nav-wrap .nav-list-wrap .ant-menu-horizontal .ant-menu-item,
+#Header .nav-wrap .nav-list-wrap .ant-menu-horizontal .ant-menu-submenu {
+  margin-top: 0;
+}
+#Header .nav-wrap .nav-list-wrap .ant-menu-horizontal {
+  line-height: 47px;
+}

@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {HashRouter,Route,Switch} from 'react-router-dom';
-import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
-import LoginUser from './layouts/LoginUser/LoginUser';
+import DefaultLayout from './layouts/DefaultLayout/index';
+import LoginUser from './layouts/LoginUser/index';
 
 export default class RouterWrap extends Component{
     render() {
