@@ -9,8 +9,8 @@ export default class RouterWrap extends Component{
             <div id="router">
                 <HashRouter>
                     <Switch>
-                        <Route path="/home" component={LoginUser}/>
-                        <Route exact path="/" component={DefaultLayout}/>
+                        <Route exact path="/" component={LoginUser}/>
+                        <Route path="/home" component={DefaultLayout}/>
                     </Switch>
                 </HashRouter>
             </div>

@@ -1,11 +1,17 @@
 import React,{Component} from 'react';
 import {Menu,Icon} from 'antd';
+import {Link} from 'react-router-dom'
 import './index.less';
 
 export default class Header extends Component {
     state = {
         current: 'home',
     }
+
+    handleClick=(e)=>{
+        this.setState({current: e.key})    
+    }
+
     render(){
         return (
             <div id="Header">
@@ -14,18 +20,18 @@ export default class Header extends Component {
                         <Icon type="global" className="nav-logo" />
                     </div>
                     <div className="nav-list-wrap">
-                        <Menu selectedKeys={[this.state.current]} mode="horizontal">
+                        <Menu selectedKeys={[this.state.current]} mode="horizontal" onClick={this.handleClick}>
                             <Menu.Item key="home">
-                                首页
+                                <Link to="/home">首页</Link>
                             </Menu.Item>
-                            <Menu.Item key="aboutme">
-                                关于我
+                            <Menu.Item key="about">
+                                <Link to="/home/about">关于我</Link>
                             </Menu.Item>
                             <Menu.Item key="article">
-                                文章分享
+                                <Link to="/home/article">文章分享</Link>
                             </Menu.Item>
                             <Menu.Item key="resource">
-                                资源共享
+                                <Link to="/home/resource">资源共享</Link>
                             </Menu.Item>
                         </Menu>
                     </div>
