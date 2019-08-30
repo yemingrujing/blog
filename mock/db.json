@@ -1,0 +1,26 @@
+{
+    "demo": [
+        {
+            "id": 1,
+            "title": "demo1",
+            "content": "从零开始建博客"
+        },
+        {
+            "id": 2,
+            "title": "demo2",
+            "content": "从一开始建博客"
+        }
+    ],
+    "article": [
+        {
+            "id": 1,
+            "title": "文章一",
+            "content": "夜明如镜的文章一"
+        },
+        {
+            "id": 2,
+            "title": "文章二",
+            "content": "夜明如镜的文章二"
+        }
+    ]
+}
