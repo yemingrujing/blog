@@ -2,30 +2,15 @@ import React from "react";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import "react-jinke-music-player/assets/index.css";
 
-var request = require('request');
-var url = 'http://music.wandhi.com/';
-request.post({
-    hostname:'music.wandhi.com',
-    url: url,
-    headers: {
-       'Accept': 'application/json, text/javascript, */*; q=0.01',
-       'Host':'m.baidu.com',
-       'Origin': 'http://music.wandhi.com',
-       'Referer': 'http://music.wandhi.com/?name=%E9%A2%84%E8%B0%8B&type=qq',
-       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-       'Cookie': 'UM_distinctid=16cef9f2e05372-01aa878edcc4eb-e343166-1fa400-16cef9f2e067c; CNZZDATA1274607868=229460881-1567382950-%7C1567410387'
-    },
-    form: {
-        input: '预谋',
-        filter: 'name',
-        type: 'qq',
-        page: 1
-    }
-}, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-        console.log(body);// 请求成功的处理逻辑
-    }
-});
+var input = '预谋';
+var url = 'http://127.0.0.1:8000/api/get/music/info?input=';
+// var request = require('request');
+// request(url + input, function(error, response, body) {
+//     console.log(body);// 请求成功的处理逻辑
+//     if (!error && response.statusCode === 200) {
+//         console.log(body);// 请求成功的处理逻辑
+//     }
+// });
 
 
 // const axios = require('axios');
@@ -78,8 +63,8 @@ const options = {
         {
             name: "预谋",
             singer: "许佳慧",
-            cover: "https://p3fx.kgimg.com/stdmusic/20150303/20150303113649415139.jpg",
-            musicSrc: "http://audio01.dmhmusic.com/71_53_T10046213504_320_4_1_0_sdk-cpm/0207/M00/66/19/ChR461srkuKAHZqIAJmDv7_X8YA040.mp3?xcode=07d81b418222445350418534263fdbc5d079d97"
+            cover: "",
+            musicSrc: ""
         }
     ],
 
@@ -209,12 +194,44 @@ const options = {
 };
 
 export default class Music extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoaded: false
+        }
+    }
+
+
+    componentDidMount() {
+        const _this = this;
+        var musicUrl = null;
+        const axios = require('axios');
+        axios.get(url + input).then(function(response){
+            var data = response.data.data;
+            musicUrl = data[0].url;
+            options.audioLists[options.audioLists.length - 1]['musicSrc'] = data[0].url;
+            options.audioLists[options.audioLists.length - 1]['cover'] = data[0].pic;
+            _this.setState({
+                isLoaded: true
+            });
+        }).catch(function (error) {
+            console.log(error);
+            _this.setState({
+                isLoaded: false,
+                error: error
+            })
+        });
+    }
 
     render() {
-        return (
-            <div>
-                <ReactJkMusicPlayer {...options} />
-            </div>
-        );
+        if (this.state.isLoaded) {
+            return (
+                <div>
+                    <ReactJkMusicPlayer {...options} />
+                </div>
+            );
+        } else {
+             return <div>Loading</div>
+        }
     }
 }
