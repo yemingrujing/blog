@@ -2,6 +2,52 @@ import React from "react";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import "react-jinke-music-player/assets/index.css";
 
+var request = require('request');
+var url = 'http://music.wandhi.com/';
+request.post({
+    hostname:'music.wandhi.com',
+    url: url,
+    headers: {
+       'Accept': 'application/json, text/javascript, */*; q=0.01',
+       'Host':'m.baidu.com',
+       'Origin': 'http://music.wandhi.com',
+       'Referer': 'http://music.wandhi.com/?name=%E9%A2%84%E8%B0%8B&type=qq',
+       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+       'Cookie': 'UM_distinctid=16cef9f2e05372-01aa878edcc4eb-e343166-1fa400-16cef9f2e067c; CNZZDATA1274607868=229460881-1567382950-%7C1567410387'
+    },
+    form: {
+        input: '预谋',
+        filter: 'name',
+        type: 'qq',
+        page: 1
+    }
+}, function(error, response, body) {
+    if (!error && response.statusCode === 200) {
+        console.log(body);// 请求成功的处理逻辑
+    }
+});
+
+
+// const axios = require('axios');
+// var data = new FormData();
+// data.append('input', '预谋');
+// data.append('filter', 'name');
+// data.append('type', 'qq');
+// data.append('page', 1);
+//
+// axios.post('http://music.wandhi.com/', data,
+// {
+//   headers: {
+//     'Accept': 'application/json, text/javascript, */*; q=0.01',
+//     'Origin': 'http://music.wandhi.com',
+//     'Referer': 'http://music.wandhi.com/?name=%E9%A2%84%E8%B0%8B&type=qq',
+//     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+//     'Cookie': 'UM_distinctid=16cef9f2e05372-01aa878edcc4eb-e343166-1fa400-16cef9f2e067c; CNZZDATA1274607868=229460881-1567382950-%7C1567410387'
+//   }
+// }).then(function(response){
+//   console.log(response);
+// });
+
 const options = {
     //audio lists model
     audioLists: [
