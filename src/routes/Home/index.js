@@ -17,11 +17,12 @@ class Home extends Component{
 
     constructor(props) {
         super(props);
+        var that = this;
         fetch("/news", {method: "GET"}).then(
             function(res) {
                 console.log(res);
                 res.json().then(function(data) {
-                    console.log(data);
+                    that.props.issues.push(data)
                 });
             }
         )
