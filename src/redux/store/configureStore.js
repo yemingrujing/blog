@@ -5,7 +5,7 @@ import reducer from '../reducer';
 
 const initialState = {
     issues: []
-}
+};
 
 // export default () => createStore(reducer, initialState);
 // export default () => createStore(

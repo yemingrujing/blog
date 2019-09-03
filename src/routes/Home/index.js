@@ -29,6 +29,7 @@ class Home extends Component{
 
     componentDidMount() {
         const {issues} = this.props;
+        console.log(this.props);
         const {page, pageNum} = this.state;
         this.setState({
             nowPageIssues: issues.slice(pageNum * (page - 1), pageNum + pageNum * (page - 1))

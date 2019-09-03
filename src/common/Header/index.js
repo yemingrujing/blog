@@ -6,11 +6,11 @@ import './index.less';
 export default class Header extends Component {
     state = {
         current: 'home',
-    }
+    };
 
     handleClick=(e)=>{
         this.setState({current: e.key})    
-    }
+    };
 
     render(){
         return (
