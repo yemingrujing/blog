@@ -4,6 +4,10 @@ import DefaultLayout from './layouts/DefaultLayout/index';
 import LoginUser from './layouts/LoginUser/index';
 
 export default class RouterWrap extends Component{
+     state = {
+         issues: []
+     };
+
     render() {
         return(
             <div id="router">

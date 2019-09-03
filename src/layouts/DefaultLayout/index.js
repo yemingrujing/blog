@@ -12,14 +12,14 @@ export default class DefaultLayout extends Component {
     render() {
         return(
             <div id="DefaultLayout">
-                <Header></Header>
+                <Header/>
                 <div className="content-wrap">
                     <Route exact path={this.props.match.url+"/"} component={Home}/>
                     <Route path={this.props.match.url+"/about"} component={About}/>
                     <Route path={this.props.match.url+"/article"} component={Article}/>
                     <Route path={this.props.match.url+"/resource"} component={Resource}/>
                 </div>
-                <Footer></Footer>
+                <Footer/>
             </div>
         )
     }

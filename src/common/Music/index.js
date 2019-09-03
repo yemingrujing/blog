@@ -2,8 +2,9 @@ import React from "react";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import "react-jinke-music-player/assets/index.css";
 
+const axios = require('axios');
 var input = '预谋';
-var url = 'http://127.0.0.1:8000/api/get/music/info?input=';
+var url = 'http://49.234.39.74:8000/api/get/music/info?input=';
 // var request = require('request');
 // request(url + input, function(error, response, body) {
 //     console.log(body);// 请求成功的处理逻辑
@@ -205,7 +206,6 @@ export default class Music extends React.Component {
     componentDidMount() {
         const _this = this;
         var musicUrl = null;
-        const axios = require('axios');
         axios.get(url + input).then(function(response){
             var data = response.data.data;
             musicUrl = data[0].url;
