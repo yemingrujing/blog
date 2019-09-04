@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import "react-jinke-music-player/assets/index.css";
 
@@ -194,7 +194,7 @@ const options = {
 
 };
 
-export default class Music extends React.Component {
+export default class Music extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -205,9 +205,9 @@ export default class Music extends React.Component {
 
     componentDidMount() {
         const _this = this;
-        var musicUrl = null;
+        let musicUrl = null;
         axios.get(url + input).then(function(response){
-            var data = response.data.data;
+            let data = response.data.data;
             musicUrl = data[0].url;
             options.audioLists[options.audioLists.length - 1]['musicSrc'] = data[0].url;
             options.audioLists[options.audioLists.length - 1]['cover'] = data[0].pic;

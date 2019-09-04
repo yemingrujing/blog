@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Menu,Icon} from 'antd';
+import {Row, Col, Menu, Icon, Affix} from 'antd';
 import {Link} from 'react-router-dom'
 import './index.less';
 

@@ -12,33 +12,18 @@ class Home extends Component{
         // 当前选中的页码
         page: 1,
         // 一页的数量
-        pageNum: 8
+        pageNum: 8,
     };
 
-    constructor(props) {
-        super(props);
-        var that = this;
-        fetch("/news", {method: "GET"}).then(
-            function(res) {
-                console.log(res);
-                res.json().then(function(data) {
-                    that.props.issues.push(data)
-                });
-            }
-        )
-    }
-
-    componentDidMount() {
-        const {issues} = this.props;
-        console.log(this.props);
-        const {page, pageNum} = this.state;
-        this.setState({
-            nowPageIssues: issues.slice(pageNum * (page - 1), pageNum + pageNum * (page - 1))
-        })
+     componentDidMount(): void {
+        const { issues } = this.props;
+        const { page, pageNum }= this.state;
+        this.setState({ nowPageIssues: issues.slice(pageNum * (page - 1), pageNum + pageNum * (page - 1))})
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        const {page, pageNum, issues} = nextProps;
+        const {issues} = nextProps;
+        const {page, pageNum} = prevState
         if (issues !== prevState.issues) {
             return {nowPageIssues: issues.slice(pageNum * (page - 1), pageNum + pageNum * (page - 1))};
         }
