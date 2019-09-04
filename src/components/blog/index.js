@@ -9,6 +9,14 @@ import { TimeUpdate, ScrollToAnchor} from '../../utils';
 const { Meta } = Card;
 
 class blog extends Component{
+
+    state = {
+        issuesInfo: [],
+        isLoaded: false,
+        path: '',
+        talk: true,
+    }
+
     render() {
         return(
             <div id="Article">
