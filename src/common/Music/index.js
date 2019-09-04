@@ -231,7 +231,7 @@ export default class Music extends Component {
                 </div>
             );
         } else {
-             return <div>Loading</div>
+             return <div></div>
         }
     }
 }
