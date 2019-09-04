@@ -3,6 +3,7 @@ import { Row, Card, Icon , Col, Tag, Pagination} from 'antd';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import QueueAnim  from 'rc-queue-anim';
+import './index.less'
 const {Meta} = Card;
 
 class Home extends Component{
@@ -28,6 +29,12 @@ class Home extends Component{
             return {nowPageIssues: issues.slice(pageNum * (page - 1), pageNum + pageNum * (page - 1))};
         }
         return null;
+    }
+
+    pageChange = (page, pageSize) => {
+        const {pageNum} = this.state;
+        const {issues} = this.props;
+        this.setState({ page, nowPageIssues: issues.slice(0 + pageNum * (page - 1), pageNum + pageNum * (page - 1))})
     }
 
     render() {
