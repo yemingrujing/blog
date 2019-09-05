@@ -9,8 +9,10 @@ import Article from '../../routes/Article/index';
 import Home from '../../routes/Home/index';
 import Resource from '../../routes/Resource/index';
 import './index.less';
+import Blog from "../../components/blog";
+import {connect} from "react-redux";
 
-export default class DefaultLayout extends Component {
+class DefaultLayout extends Component {
     render() {
         return(
             <div id="DefaultLayout">
@@ -25,6 +27,7 @@ export default class DefaultLayout extends Component {
                                     <Route path={this.props.match.url+"/about"} component={About}/>
                                     <Route path={this.props.match.url+"/article"} component={Article}/>
                                     <Route path={this.props.match.url+"/resource"} component={Resource}/>
+                                    <Route path={this.props.match.url+"/blog/:number"} component={Blog} />
                                 </Col>
                                 <Col xs={24} sm={24} md={24} lg={{span:6,offset:1}} xl={{span:6,offset:1}} xxl={{span:6,offset:1}}>
                                     <Right/>
@@ -38,3 +41,11 @@ export default class DefaultLayout extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        issues: state.issues
+    }
+};
+
+export default connect(mapStateToProps)(DefaultLayout)
