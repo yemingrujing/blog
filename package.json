@@ -43,7 +43,7 @@
     "key-mirror": "^1.0.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "mini-css-extract-plugin": "0.5.0",
     "mockjs": "^1.0.1-beta3",
     "optimize-css-assets-webpack-plugin": "5.0.3",
